@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 // import './App.css';
+import axios from 'axios';
 
 const employeeUrl = 'https://edwardtanguay.vercel.app/share/employees.json';
 
-interface Employees {
+interface IEmployees {
   employeeID: number;
   firstName: string;
   lastName: string;
@@ -23,7 +24,7 @@ a();
 // useEffect(() => {}, []);
 
 function App() {
-  const [employees, setEmployees] = useState<Employees[]>([]);
+  const [employees, setEmployees] = useState<IEmployees[]>([]);
 
   // const fetchEmployeeData = async () => { Das führt dazu, dass die Funktion bei jedem Render erneut ausgeführt wird — also eine Endlosschleife von Fetches!
 
@@ -33,11 +34,20 @@ function App() {
     (async () => {
       const response = await fetch(employeeUrl);
       const _employees = await response.json();
-      setEmployees(_employees);
-      console.log(employees);
+      // setEmployees(_employees);
+      // console.log(employees);
     })();
     // fetchEmployeeData();
   }, []); // [] führt nur einmal, wenn die Seit lädt!
+
+  // USING THE SAME BUT WITH AXIOS:
+  useEffect(() => {
+    (async () => {
+      const response = await axios(employeeUrl);
+      console.log(response.data);
+      setEmployees(response.data);
+    })();
+  }, []);
 
   return (
     <div className="App">
