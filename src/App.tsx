@@ -1,5 +1,7 @@
 import './App.css';
 
+const employeeUrl = 'https://edwardtanguay.vercel.app/share/employees.json';
+
 function App() {
   return (
     <div className="App">
