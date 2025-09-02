@@ -14,4 +14,23 @@ body {
   h1 {
     color: yellow;
   }
+
+  .employees {
+    color: green;
+  }
+
+  .employee {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #222;
+  }
+
+  .firstAndLastName {
+    color: aqua;
+    font-size: medium;
+  }
+
+  .title {
+    color: rgb(154, 154, 91);
+  }
 }
