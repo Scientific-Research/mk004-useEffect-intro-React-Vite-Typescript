@@ -3,7 +3,7 @@ import './App.css';
 
 const employeeUrl = 'https://edwardtanguay.vercel.app/share/employees.json';
 
-interface Employee {
+interface Employees {
   employeeID: number;
   firstName: string;
   lastName: string;
@@ -11,7 +11,7 @@ interface Employee {
 }
 
 function App() {
-  const [fetchData, setFetchData] = useState<Employee[]>([]);
+  const [employees, setEmployees] = useState<Employees[]>([]);
 
   // const fetchEmployeeData = async () => { Das führt dazu, dass die Funktion bei jedem Render erneut ausgeführt wird — also eine Endlosschleife von Fetches!
 
@@ -20,8 +20,8 @@ function App() {
     const fetchEmployeeData = async () => {
       const response = await fetch(employeeUrl);
       const data = await response.json();
-      setFetchData(data);
-      console.log(fetchData);
+      setEmployees(data);
+      console.log(employees);
     };
     fetchEmployeeData();
   }, []);
@@ -30,12 +30,12 @@ function App() {
     <div className="App">
       <h1>useEffect-Intro-React-Vite-Typescript</h1>
       <div className="employees">
-        {fetchData.map((employee) => (
-          <div className="employee" key={employee.employeeID}>
+        {employees.map((employees) => (
+          <div className="employee" key={employees.employeeID}>
             <p className="firstAndLastName">
-              {employee.firstName} {employee.lastName}
+              {employees.firstName} {employees.lastName}
             </p>
-            <p className="title">{employee.title}</p>
+            <p className="title">{employees.title}</p>
           </div>
         ))}
       </div>
