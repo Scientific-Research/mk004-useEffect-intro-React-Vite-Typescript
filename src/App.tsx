@@ -10,6 +10,18 @@ interface Employees {
   title: string;
 }
 
+// NOTE: Arrow Function => when we delete const, ax2 and =, then we will have an IIFE function! It means an IIFE function is an arrow function without name!
+const a = () => {
+  console.log('first');
+};
+a();
+
+// IIFE => Intermediately Invoked Function Expression
+(() => {})();
+
+// useEffect => IIFE + useEffect word itself at the beginning + one bracket at the end after comma like reduce() function which has a default value at the end!
+// useEffect(() => {}, []);
+
 function App() {
   const [employees, setEmployees] = useState<Employees[]>([]);
 
@@ -29,6 +41,7 @@ function App() {
   return (
     <div className="App">
       <h1>useEffect-Intro-React-Vite-Typescript</h1>
+      <h2>There are {employees.length} employees.</h2>
       <div className="employees">
         {employees.map((employees) => (
           <div className="employee" key={employees.employeeID}>
