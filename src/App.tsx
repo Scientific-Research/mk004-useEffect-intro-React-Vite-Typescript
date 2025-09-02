@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+// import './App.css';
 
 const employeeUrl = 'https://edwardtanguay.vercel.app/share/employees.json';
 
@@ -29,14 +29,15 @@ function App() {
 
   // useEffect(() => {}, []) sorgt dafür, dass der Fetch nur einmal beim Laden ausgeführt wird.
   useEffect(() => {
-    const fetchEmployeeData = async () => {
+    // const fetchEmployeeData = async () => { OR using the IIFE as following:
+    (async () => {
       const response = await fetch(employeeUrl);
-      const data = await response.json();
-      setEmployees(data);
+      const _employees = await response.json();
+      setEmployees(_employees);
       console.log(employees);
-    };
-    fetchEmployeeData();
-  }, []);
+    })();
+    // fetchEmployeeData();
+  }, []); // [] führt nur einmal, wenn die Seit lädt!
 
   return (
     <div className="App">
