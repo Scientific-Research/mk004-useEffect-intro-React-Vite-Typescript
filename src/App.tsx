@@ -31,8 +31,8 @@ function App() {
       <h1>useEffect-Intro-React-Vite-Typescript</h1>
       <div className="employees">
         {fetchData.map((employee) => (
-          <div className="employee">
-            <p key={employee.employeeID} className="firstAndLastName">
+          <div className="employee" key={employee.employeeID}>
+            <p className="firstAndLastName">
               {employee.firstName} {employee.lastName}
             </p>
             <p className="title">{employee.title}</p>
