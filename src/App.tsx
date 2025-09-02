@@ -29,16 +29,16 @@ function App() {
   // const fetchEmployeeData = async () => { Das führt dazu, dass die Funktion bei jedem Render erneut ausgeführt wird — also eine Endlosschleife von Fetches!
 
   // useEffect(() => {}, []) sorgt dafür, dass der Fetch nur einmal beim Laden ausgeführt wird.
-  useEffect(() => {
-    // const fetchEmployeeData = async () => { OR using the IIFE as following:
-    (async () => {
-      const response = await fetch(employeeUrl);
-      const _employees = await response.json();
-      // setEmployees(_employees);
-      // console.log(employees);
-    })();
-    // fetchEmployeeData();
-  }, []); // [] führt nur einmal, wenn die Seit lädt!
+  // useEffect(() => {
+  //   // const fetchEmployeeData = async () => { OR using the IIFE as following:
+  //   (async () => {
+  //     const response = await fetch(employeeUrl);
+  //     const _employees = await response.json();
+  //     // setEmployees(_employees);
+  //     // console.log(employees);
+  //   })();
+  //   // fetchEmployeeData();
+  // }, []); // [] führt nur einmal, wenn die Seit lädt!
 
   // USING THE SAME BUT WITH AXIOS:
   useEffect(() => {
